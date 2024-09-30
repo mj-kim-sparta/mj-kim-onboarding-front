@@ -1,6 +1,18 @@
 import Image from "next/image";
-
+import * as S from "@/app/components/style";
+import Cta from "@/app/components/landing/cta";
 export default function Home() {
+  return (
+    <S.Container>
+      <S.Title>
+        hello
+      </S.Title>
+      <Cta />
+    </S.Container>
+  );
+}
+
+  /*
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -98,4 +110,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+  */
