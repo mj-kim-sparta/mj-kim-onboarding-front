@@ -1,6 +1,11 @@
+import Signup from "@/app/components/user/signup";
 import * as S from "@/app/components/style";
-import Signup from "@/app/components/signup/signup";
 
 export default function SignupPage() {
-  return <Signup />;
+  return (
+    <S.Container>
+      <S.Spacer height={100} />
+      <Signup />
+    </S.Container>
+  );
 }

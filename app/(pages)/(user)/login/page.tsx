@@ -1,6 +1,11 @@
 import * as S from "@/app/components/style";
-import Login from "@/app/components/login/login";
-
+// import Link from "next/link";
+import Login from "@/app/components/user/login";
 export default function LoginPage() {
-  return <Login />;
+  return (
+    <S.Container>
+      <S.Spacer height={100} />
+      <Login />
+    </S.Container>
+  );
 }

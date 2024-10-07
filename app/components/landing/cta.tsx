@@ -1,26 +1,37 @@
 'use client'
-import * as S from "@/app/components/style";
+import * as S from "./Cta.style";
+import { sendRequest } from "../logics";
+import { useAtomValue } from "jotai";
+import { isLoggedIn } from "@/app/components/user/state";
 import { useRouter } from "next/navigation";
 
-const apply = () => {
-    fetch('/api/apply', {
+const apply = async () => {
+    const response = await sendRequest('/api/apply', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            name: 'John Doe',
-            email: 'john.doe@example.com',
-            phone: '1234567890'
-        })
+        requireAuth: true,
     })
+    if (response) {
+        alert('지원 완료!');
+    }
+    else {
+        alert('지원 실패');
+    }
 }
 
 export default function Cta() {
+    const loggedIn = useAtomValue(isLoggedIn);
     const router = useRouter();
     return (
         <S.Cta onClick={() => {
-            router.push('/signup')
+            if (loggedIn) {
+                apply()
+            }
+            else {
+                router.push('/login')
+            }
         }}>
             지금 지원!
         </S.Cta>

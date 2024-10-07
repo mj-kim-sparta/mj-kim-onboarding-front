@@ -1,9 +1,12 @@
-import Image from "next/image";
+// import Image from "next/image";
 import * as S from "@/app/components/style";
 import Cta from "@/app/components/landing/cta";
+
+
 export default function Home() {
   return (
     <S.Container>
+      <S.Spacer height={50} />
       <S.Title>
         hello
       </S.Title>

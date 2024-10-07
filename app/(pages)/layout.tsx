@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+'use client'
 import Navbar from "@/app/components/navbar/navbar";
-
-export const metadata: Metadata = {
-  title: "myfront",
-  description: "팀스파르타 프론트 온보딩",
-};
+import { DesignSystemProvider } from "@teamsparta/design-system";
+import { designSystemTheme } from "@/app/components/common.style";
 
 export default function RootLayout({
   children,
@@ -13,11 +9,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <DesignSystemProvider
+      breakpoints={designSystemTheme.breakpoints}
+      theme={{
+        colors: designSystemTheme.colors,
+        mode: 'light',
+      }}>
+      <Navbar />
+      {children}
+    </DesignSystemProvider>
   );
 }

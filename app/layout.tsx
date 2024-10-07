@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/navbar/navbar";
+// import { DesignSystemProvider } from '@teamsparta/design-system';
+// import { designSystemTheme } from '@/app/components/common.style';
+
+// import Navbar from "./components/navbar/navbar";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -26,9 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+        <body>
+          {children}
+        </body>
     </html>
   );
 }
